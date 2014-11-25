@@ -25,7 +25,7 @@ public class SentimentAnalyzer {
                 .map(c ->
                         Arrays.asList(c.split(" ")).parallelStream()
                                 .map(w -> wordScore.get(w) == null ? 0 : wordScore.get(w))
-                                .reduce(0, (commentTotal, commentCurrent) -> commentTotal + commentCurrent))
-                .reduce(0, (sentimentTotal, sentimentCurrent) -> sentimentTotal + sentimentCurrent);
+                                .reduce(0, Integer::sum))
+                .reduce(0, Integer::sum);
     }
 }
