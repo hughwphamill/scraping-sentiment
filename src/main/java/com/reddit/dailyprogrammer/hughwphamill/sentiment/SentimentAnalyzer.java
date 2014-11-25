@@ -21,7 +21,7 @@ public class SentimentAnalyzer {
     }
 
     public int analyze(List<String> comments) {
-        return comments.parallelStream().map(w -> w.toLowerCase())
+        return comments.parallelStream().map(c -> c.toLowerCase())
                 .map(c ->
                         Arrays.asList(c.split(" ")).parallelStream()
                                 .map(w -> wordScore.get(w) == null ? 0 : wordScore.get(w))
